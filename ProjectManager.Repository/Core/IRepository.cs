@@ -13,10 +13,16 @@ namespace ProjectManager.Repository.Core
 
         IEnumerable<T> GetBasedOnCriteria(Expression<Func<T, bool>> where = null);
 
-        T Insert(T entity);
+        void Insert(T entity);
 
-        T Update(T entity);
+        void Update(T entity);
 
-        bool Delete(int id);
+        void Delete(int id);
+
+        T GetById(int id);
+
+        T Get(Func<T, bool> criteria);
+
+        IQueryable<T> QueryData(Expression<Func<T, bool>> criteria = null);
     }
 }

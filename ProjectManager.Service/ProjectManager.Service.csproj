@@ -31,8 +31,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,11 +48,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\ICoreService.cs" />
+    <Compile Include="Mapping\MappingProfile.cs" />
+    <Compile Include="Persistance\CoreService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Core\" />
-    <Folder Include="Persistance\" />
+    <ProjectReference Include="..\ProjectManager.Contract\ProjectManager.Contract.csproj">
+      <Project>{6c18c4a5-e857-4228-aed8-285072814494}</Project>
+      <Name>ProjectManager.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjectManager.Model\ProjectManager.Model.csproj">
+      <Project>{06530c87-0676-430f-bcc5-a24afa82890a}</Project>
+      <Name>ProjectManager.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjectManager.Repository\ProjectManager.Repository.csproj">
+      <Project>{74C508AF-6180-4F16-8DC4-DE206AB8AD92}</Project>
+      <Name>ProjectManager.Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
