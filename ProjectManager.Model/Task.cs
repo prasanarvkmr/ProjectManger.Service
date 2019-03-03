@@ -22,8 +22,8 @@ namespace ProjectManager.Model
     
         public int Id { get; set; }
         public Nullable<int> ParentId { get; set; }
-        public Nullable<int> Project_ID { get; set; }
-        public string Task1 { get; set; }
+        public Nullable<int> ProjectId { get; set; }
+        public string Name { get; set; }
         public Nullable<System.DateTime> StartDate { get; set; }
         public Nullable<System.DateTime> EndDate { get; set; }
         public string Priority { get; set; }
