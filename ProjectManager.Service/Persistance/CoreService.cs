@@ -55,7 +55,7 @@ namespace ProjectManager.Service.Persistance
                     repo.Update(project);
                 }
 
-                if (data.Manager.Id != 0)
+                if (data?.Manager?.Id != 0)
                 {
                     var userRepo = _unitWork.Repository<User>();
                     var user = userRepo.GetById(data.Manager.Id);
@@ -88,13 +88,13 @@ namespace ProjectManager.Service.Persistance
                 var taskRepo = _unitWork.Repository<Task>();
                 var tasks = taskRepo.GetBasedOnCriteria(x => x.ProjectId == id);
 
-                project.Tasks.ToList().ForEach(x =>
+                project.Tasks?.ToList().ForEach(x =>
                 {
                     x.ProjectId = null;
                     //taskRepo.Update(x);
                 });
 
-                project.Users.ToList().ForEach(x =>
+                project.Users?.ToList().ForEach(x =>
                 {
                     x.ProjectId = null;
                 });
@@ -162,7 +162,7 @@ namespace ProjectManager.Service.Persistance
                         repo.Update(project);
                     }
 
-                    if (data.Manager.Id != 0)
+                    if (data?.Manager?.Id != null && data?.Manager?.Id != 0)
                     {
                         var userRepo = _unitWork.Repository<User>();
                         var user = userRepo.GetById(data.Manager.Id);
@@ -201,7 +201,7 @@ namespace ProjectManager.Service.Persistance
                 var taskRepo = _unitWork.Repository<Task>();
                 var tasks = taskRepo.GetBasedOnCriteria(x => x.ProjectId == id);
 
-                Task.Users.ToList().ForEach(x =>
+                Task.Users?.ToList().ForEach(x =>
                 {
                     x.TaskId = null;
                     //taskRepo.Update(x);
